@@ -1,0 +1,262 @@
+name: puerta-operations
+
+services:
+  db-staging:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - ./staging.db.env
+    volumes:
+      - postgres_staging:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks: [staging]
+
+  migrate-staging:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+      target: migrate
+    restart: "no"
+    env_file:
+      - ./staging.app.env
+    depends_on:
+      db-staging:
+        condition: service_healthy
+    networks: [staging]
+
+  api-staging:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+      target: runtime
+    restart: unless-stopped
+    env_file:
+      - ./staging.app.env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+    depends_on:
+      db-staging:
+        condition: service_healthy
+      migrate-staging:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks: [staging, edge-network]
+
+  web-staging:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: https://${STAGING_API_DOMAIN:?Set STAGING_API_DOMAIN in the root .env}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:8080/health/live"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks: [edge-network]
+
+  backup-staging:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./staging.backup.env
+    volumes:
+      - backups_staging:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /backups/.last-success && test \"$$(date -u +%s)\" -lt \"$$(($(cat /backups/.last-success) + 86400))\""]
+      interval: 15m
+      timeout: 5s
+      retries: 2
+      start_period: 30s
+    depends_on:
+      db-staging:
+        condition: service_healthy
+    networks: [staging]
+
+  db-production:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - ./production.db.env
+    volumes:
+      - postgres_production:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks: [production]
+
+  migrate-production:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+      target: migrate
+    restart: "no"
+    env_file:
+      - ./production.app.env
+    depends_on:
+      db-production:
+        condition: service_healthy
+    networks: [production]
+
+  api-production:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+      target: runtime
+    restart: unless-stopped
+    env_file:
+      - ./production.app.env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+    depends_on:
+      db-production:
+        condition: service_healthy
+      migrate-production:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health/live').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks: [production, edge-network]
+
+  web-production:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: https://${API_DOMAIN:?Set API_DOMAIN in the root .env}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:8080/health/live"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks: [edge-network]
+
+  backup-production:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - ./production.backup.env
+    volumes:
+      - backups_production:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /backups/.last-success && test \"$$(date -u +%s)\" -lt \"$$(($(cat /backups/.last-success) + 86400))\""]
+      interval: 15m
+      timeout: 5s
+      retries: 2
+      start_period: 30s
+    depends_on:
+      db-production:
+        condition: service_healthy
+    networks: [production]
+
+  edge:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?Set APP_DOMAIN in the root .env}
+      API_DOMAIN: ${API_DOMAIN:?Set API_DOMAIN in the root .env}
+      STAGING_APP_DOMAIN: ${STAGING_APP_DOMAIN:?Set STAGING_APP_DOMAIN in the root .env}
+      STAGING_API_DOMAIN: ${STAGING_API_DOMAIN:?Set STAGING_API_DOMAIN in the root .env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt:/etc/letsencrypt:ro
+      - certbot_webroot:/var/www/certbot:ro
+    depends_on:
+      api-staging:
+        condition: service_healthy
+      api-production:
+        condition: service_healthy
+      web-staging:
+        condition: service_healthy
+      web-production:
+        condition: service_healthy
+    networks: [edge-network]
+
+  certbot:
+    image: certbot/certbot:v4.0.0
+    profiles: [tools]
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot_webroot:/var/www/certbot
+    entrypoint: ["certbot"]
+
+  restore-drill-production:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    profiles: [tools]
+    entrypoint: ["/usr/local/bin/restore-drill"]
+    volumes:
+      - backups_production:/backups:ro
+    networks: [restore-drill]
+
+  restore-drill-staging:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    profiles: [tools]
+    entrypoint: ["/usr/local/bin/restore-drill"]
+    volumes:
+      - backups_staging:/backups:ro
+    networks: [restore-drill]
+
+  restore-staging:
+    build:
+      context: ./backup
+      dockerfile: Dockerfile
+    profiles: [tools]
+    entrypoint: ["/usr/local/bin/restore-staging"]
+    env_file:
+      - ./staging.app.env
+    volumes:
+      - backups_staging:/backups:ro
+    depends_on:
+      db-staging:
+        condition: service_healthy
+    networks: [staging]
+
+volumes:
+  postgres_staging:
+  postgres_production:
+  backups_staging:
+  backups_production:
+  letsencrypt:
+  certbot_webroot:
+
+networks:
+  staging:
+    internal: true
+  production:
+    internal: true
+  edge-network:
+    driver: bridge
+  restore-drill:
+    internal: true

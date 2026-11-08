@@ -1,0 +1,9 @@
+[Unit]
+Description=Renew Puerta HTTPS certificates
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/puerta
+ExecStart=/opt/puerta/deployment/renew-certificates.sh
