@@ -9,3 +9,4 @@ postgresql_18.exe
 edb_psqlodbc.exe
 
 *.log
+*.bundle
