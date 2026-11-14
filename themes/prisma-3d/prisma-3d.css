@@ -1,0 +1,254 @@
+/* PRISMA 3D · INDUSTRIAL. Solo pantalla; sin cambios de scripts, datos o impresión. */
+@media screen {
+html:not(.cv-high-contrast) {
+  --cv-bg:#0F172A; --cv-panel:#1E293B; --cv-field:#0F172A;
+  --cv-ink:#F8FAFC; --cv-muted:#CBD5E1; --cv-line:#334155;
+  --cv-card-shadow:0 5px 16px #02061726;
+  --ui-raised:#334155; --ui-base:#020617; --ui-highlight:#ffffff21;
+  --ui-focus:#93C5FD; --ui-number-1:#93C5FD; --ui-number-2:#5EEAD4; --ui-number-3:#C4B5FD;
+  color-scheme:dark;
+}
+html.cv-light:not(.cv-high-contrast) {
+  --cv-bg:#F8FAFC; --cv-panel:#FFFFFF; --cv-field:#F8FAFC;
+  --cv-ink:#0F172A; --cv-muted:#475569; --cv-line:#E2E8F0;
+  --cv-card-shadow:0 5px 16px #0f172a0a;
+  --ui-raised:#F1F5F9; --ui-base:#CBD5E1; --ui-highlight:#FFFFFF;
+  --ui-focus:#2563EB; --ui-number-1:#2563EB; --ui-number-2:#0F766E; --ui-number-3:#7C3AED;
+  color-scheme:light;
+}
+
+/* Superficies neutras: no hay gradientes ni tramas detrás de las cifras. */
+html:not(.cv-high-contrast), html:not(.cv-high-contrast) body,
+html:not(.cv-high-contrast) #root, html:not(.cv-high-contrast) #root > div.min-h-screen {
+  background:var(--cv-bg)!important; color:var(--cv-ink)!important;
+}
+html:not(.cv-high-contrast) #root > div > main {background:transparent!important;padding-top:26px!important;}
+html:not(.cv-high-contrast) #root > div.min-h-screen {padding-bottom:138px!important;}
+html:not(.cv-high-contrast) .cad-bg-glow {opacity:0!important;pointer-events:none;}
+html:not(.cv-high-contrast) .cv-client-hub {--cv-border:var(--cv-line);--cv-muted:#CBD5E1;}
+html.cv-light:not(.cv-high-contrast) .cv-client-hub {--cv-muted:#475569;}
+html:not(.cv-high-contrast) :is(.surface-card,.cv-studio,.cv-client-card,.cv-client-empty,.cv-client-preview,.cv11-card,.cv10-card,.cv12-panel,.cv12-stat,.cv124-section,.cvg-card) {
+  background:var(--cv-panel)!important; color:var(--cv-ink)!important;
+  border:1px solid var(--cv-line)!important; border-radius:16px!important;
+  box-shadow:var(--cv-card-shadow)!important;
+}
+html:not(.cv-high-contrast) :is(.cv11-wrap,.cv10-panel,.cv12-overlay) {background:var(--cv-bg)!important;color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) :is(.cv-client-card,.cv-client-empty,.cv-client-preview,.cv11-card,.cv10-card,.cv12-panel,.cv12-stat,.cvg-card) :is(h1,h2,h3,h4,strong,b,dt,dd) {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) :is(.cv-client-card,.cv-client-empty,.cv-client-preview,.cv11-card,.cv10-card,.cv12-panel,.cv12-stat,.cvg-card) :is(p,label,small) {color:var(--cv-muted)!important;}
+
+/* Barra cobalto y acción rápida naranja; se reutilizan los botones originales. */
+html:not(.cv-high-contrast) #root header:has(button[title="Clic para seleccionar módulo"]) {
+  background:#2563EB!important;color:#F8FAFC!important;border-bottom:1px solid #1E40AF!important;
+  box-shadow:0 3px 0 #1E40AF,0 8px 18px #02061726!important;
+}
+html:not(.cv-high-contrast) #root header:has(button[title="Clic para seleccionar módulo"]) :is(h1,h2,h3,p,span,svg) {color:#F8FAFC!important;}
+html:not(.cv-high-contrast) #root header .bg-clip-text {background:none!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;}
+html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] {
+  background:#1D4ED8!important;color:#F8FAFC!important;border:1px solid #93C5FD88!important;border-radius:14px!important;
+  box-shadow:inset 0 1px #ffffff40,0 4px 0 #1E40AF,0 7px 12px #0f172a26!important;
+}
+html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] > div:first-child {
+  background:#FFFFFF!important;border:1px solid #DBEAFE!important;border-radius:11px!important;
+  box-shadow:inset 0 1px #fff,0 3px 0 #93C5FD!important;
+}
+html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] > div:first-child svg {color:#2563EB!important;}
+html:not(.cv-high-contrast) #root header button:not([title="Clic para seleccionar módulo"]) {
+  background:#1D4ED8!important;color:#F8FAFC!important;border-color:#93C5FD77!important;border-radius:10px!important;
+  min-height:40px;box-shadow:inset 0 1px #ffffff30,0 3px 0 #1E40AF,0 6px 10px #0f172a20!important;
+}
+html:not(.cv-high-contrast) #root header button[title="Abrir Área de Digitalización de Puertas por Imagen"] {
+  background:#F97316!important;color:#0F172A!important;border-color:#FDBA74!important;
+  box-shadow:inset 0 1px #ffffff65,0 4px 0 #C2410C,0 7px 12px #0f172a24!important;
+}
+html:not(.cv-high-contrast) #root header button[title="Abrir Área de Digitalización de Puertas por Imagen"] :is(span,svg) {color:#0F172A!important;animation:none!important;}
+
+/* Neutraliza los bloques de color heredados, sin modificar geometría SVG. */
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button {
+  background:var(--cv-panel)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;
+  box-shadow:0 4px 0 var(--ui-base),0 8px 14px #02061714!important;
+}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button::after {content:none!important;}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button :is(h3,span,svg) {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button p {color:var(--cv-muted)!important;opacity:1!important;}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button > div:not(.absolute) > div:first-child {
+  background:var(--ui-raised)!important;border:1px solid var(--cv-line)!important;box-shadow:inset 0 1px var(--ui-highlight)!important;
+}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button > div:not(.absolute) > span {
+  background:var(--cv-field)!important;border:1px solid var(--cv-line)!important;color:var(--cv-muted)!important;
+}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button.ring-2 {
+  outline:2px solid #2563EB!important;outline-offset:3px!important;box-shadow:0 4px 0 var(--ui-base),0 8px 14px #02061714!important;
+}
+html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:hover {
+  transform:translateY(-2px);box-shadow:0 6px 0 var(--ui-base),0 12px 18px #02061720!important;
+}
+/* Esta clase gap-3 distingue la fila de familias de las galerías de aperturas. */
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] {gap:16px!important;padding-block:4px 10px;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button:nth-child(1) {--category:#0284C7;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button:nth-child(2) {--category:#0D9488;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button:nth-child(3) {--category:#D97706;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button:nth-child(4) {--category:#7C3AED;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button:nth-child(5) {--category:#059669;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button {
+  min-height:156px!important;padding:18px!important;border-top:4px solid var(--category)!important;border-radius:16px!important;
+  box-shadow:inset 0 1px var(--ui-highlight),0 4px 0 var(--ui-base),0 8px 14px #02061714!important;
+}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button > .absolute {background:var(--category)!important;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button h3 {font-size:15px!important;font-weight:800!important;line-height:1.35!important;margin-top:10px!important;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button p {font-size:12px!important;line-height:1.5!important;}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button > div:not(.absolute) > div:first-child {
+  width:42px!important;height:42px!important;background:var(--category)!important;border:1px solid #ffffff40!important;border-radius:12px!important;
+  box-shadow:inset 0 1px #ffffff50,0 3px 0 #0f172a30!important;
+}
+html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button > div:not(.absolute) > div:first-child svg {color:#F8FAFC!important;}
+
+/* Clientes, registros y hojas: fondos iguales, cifras diferenciadas. */
+html:not(.cv-high-contrast) .cv-client-hero {
+  background:var(--cv-panel)!important;border:1px solid var(--cv-line)!important;border-left:4px solid #2563EB!important;
+  border-radius:16px!important;box-shadow:var(--cv-card-shadow)!important;
+}
+html:not(.cv-high-contrast) .cv-client-hero::before {content:none!important;}
+html:not(.cv-high-contrast) .cv-client-hero :is(h1,h2) {color:var(--cv-ink)!important;letter-spacing:-.025em!important;}
+html:not(.cv-high-contrast) .cv-client-hero p {color:var(--cv-muted)!important;}
+html:not(.cv-high-contrast) .cv-client-hero .cv-client-eyebrow {color:var(--ui-number-1)!important;}
+html:not(.cv-high-contrast) .cv-client-stats {gap:14px!important;}
+html:not(.cv-high-contrast) .cv-client-stats > :nth-child(n) {
+  background:var(--cv-panel)!important;border:1px solid var(--cv-line)!important;border-radius:14px!important;box-shadow:var(--cv-card-shadow)!important;padding:18px!important;
+}
+html:not(.cv-high-contrast) .cv-client-stats :is(span,p) {color:var(--cv-muted)!important;}
+html:not(.cv-high-contrast) .cv-client-stats strong {font-size:30px!important;font-weight:800!important;font-variant-numeric:tabular-nums;line-height:1.2;}
+html:not(.cv-high-contrast) .cv-client-stats > :nth-child(1) strong {color:var(--ui-number-1)!important;}
+html:not(.cv-high-contrast) .cv-client-stats > :nth-child(2) strong {color:var(--ui-number-2)!important;}
+html:not(.cv-high-contrast) .cv-client-stats > :nth-child(3) strong {color:var(--ui-number-3)!important;}
+html:not(.cv-high-contrast) .cv-client-toolbar {
+  background:var(--cv-panel)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;border-radius:14px!important;box-shadow:var(--cv-card-shadow)!important;
+}
+html:not(.cv-high-contrast) .cv-client-toolbar label {color:var(--cv-muted)!important;}
+html:not(.cv-high-contrast) .cv-client-toolbar :is(input,select),html:not(.cv-high-contrast) .cv-studio-field :is(input,select) {
+  background:var(--cv-field)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;min-height:44px;
+  box-shadow:inset 0 1px 2px #02061714!important;font-variant-numeric:tabular-nums;
+}
+html:not(.cv-high-contrast) .cv-client-toolbar input::placeholder {color:var(--cv-muted)!important;}
+
+/* Relieve 3D mediante sombras, con pulsación y foco visibles. */
+html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary),html:not(.cv-high-contrast) .cv-client-hero .cv-client-primary {
+  background:#2563EB!important;color:#F8FAFC!important;border:1px solid #3B82F6!important;border-radius:11px!important;min-height:44px;font-weight:750;
+  box-shadow:inset 0 1px #ffffff50,0 4px 0 #1E40AF,0 7px 12px #02061721!important;margin-bottom:4px;
+  transition:transform .15s ease,box-shadow .15s ease!important;
+}
+html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary) :is(span,svg) {color:#F8FAFC!important;}
+html:not(.cv-high-contrast) .cv-client-hero :is(.cv-client-secondary,.cv-client-upload),html:not(.cv-high-contrast) .cv-client-secondary {
+  background:var(--ui-raised)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;min-height:44px;border-radius:11px!important;
+  box-shadow:inset 0 1px var(--ui-highlight),0 3px 0 var(--ui-base),0 6px 10px #02061714!important;
+}
+html:not(.cv-high-contrast) .cv-client-secondary :is(span,svg) {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary):enabled:hover {transform:translateY(-2px);}
+html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary):enabled:active {transform:translateY(3px);box-shadow:inset 0 1px #ffffff40,0 1px 0 #1E40AF,0 3px 5px #02061721!important;}
+html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary):disabled {opacity:.5!important;transform:none!important;}
+
+/* Editor: canvas y campos discretos, sin alterar fill, stroke o cotas. */
+html:not(.cv-high-contrast) .cv-studio-top {background:var(--cv-panel)!important;border-bottom:1px solid var(--cv-line)!important;border-radius:16px 16px 0 0!important;box-shadow:none!important;}
+html:not(.cv-high-contrast) .cv-studio-top h2 {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) .cv-studio-top p {color:var(--cv-muted)!important;}
+html:not(.cv-high-contrast) .cv-studio-top .cv-studio-button {background:#2563EB!important;color:#F8FAFC!important;border-color:#3B82F6!important;box-shadow:inset 0 1px #ffffff50,0 4px 0 #1E40AF,0 7px 12px #02061721!important;}
+html:not(.cv-high-contrast) .cv-studio-tabs {padding-bottom:7px!important;gap:10px!important;}
+html:not(.cv-high-contrast) .cv-studio-tabs button:nth-child(n) {
+  background:var(--ui-raised)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;border-radius:10px!important;min-height:44px;
+  box-shadow:inset 0 1px var(--ui-highlight),0 3px 0 var(--ui-base),0 6px 10px #02061714!important;
+}
+html:not(.cv-high-contrast) .cv-studio-tabs button[aria-pressed="true"],html:not(.cv-high-contrast) :is(.cv11-tabs,.cvg-tabs) button.active,html:not(.cv-high-contrast) .cv12-nav button.active {
+  background:#2563EB!important;color:#F8FAFC!important;border-color:#3B82F6!important;box-shadow:inset 0 1px #ffffff50,0 3px 0 #1E40AF!important;
+}
+html:not(.cv-high-contrast) :is(.cv11-tabs,.cvg-tabs,.cv12-nav) button.active :is(span,svg) {color:#F8FAFC!important;}
+html:not(.cv-high-contrast) .cv-studio-tabs button:active {transform:translateY(2px);}
+html:not(.cv-high-contrast) .cv-studio-grid > aside {background:var(--cv-panel)!important;border:1px solid var(--cv-line)!important;border-top:2px solid #2563EB!important;}
+html:not(.cv-high-contrast) .cv-studio-grid > aside:last-child {border-top-color:#2563EB!important;}
+html:not(.cv-high-contrast) .cv-studio-canvas {background:var(--cv-field)!important;border:1px solid var(--cv-line)!important;box-shadow:none!important;}
+html:not(.cv-high-contrast) :is(.cvg-head,.cv12-side) {background:var(--cv-panel)!important;color:var(--cv-ink)!important;border-color:var(--cv-line)!important;}
+html:not(.cv-high-contrast) :is(.cvg-head,.cv12-side) :is(h1,h2,h3,b,strong) {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) .cv12-nav button:not(.active) {background:transparent!important;color:var(--cv-muted)!important;}
+
+/* Dock flotante y botón principal: elevación visible, sin neón. */
+html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {
+  left:50%!important;right:auto!important;bottom:calc(18px + env(safe-area-inset-bottom,0px))!important;
+  width:max-content!important;max-width:calc(100vw - 220px)!important;transform:translateX(-50%)!important;
+  min-height:78px!important;padding:10px 12px 16px!important;gap:10px!important;
+  background:var(--cv-panel)!important;border:1px solid var(--cv-line)!important;border-radius:20px!important;
+  box-shadow:inset 0 1px var(--ui-highlight),0 5px 0 var(--ui-base),0 16px 32px #02061733!important;
+  overflow-x:auto!important;justify-content:flex-start!important;scrollbar-width:thin;scrollbar-color:#64748B var(--cv-panel);
+}
+html:not(.cv-high-contrast) #cvBottomActionBar.cv-dock-minimized {visibility:hidden!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > button {
+  flex:0 0 auto!important;height:48px!important;min-height:48px!important;padding:10px 15px!important;
+  background:var(--ui-raised)!important;color:var(--cv-ink)!important;border:1px solid var(--cv-line)!important;border-radius:12px!important;
+  font-size:11px!important;font-weight:800!important;box-shadow:inset 0 1px var(--ui-highlight),0 4px 0 var(--ui-base),0 7px 10px #02061721!important;
+  transform:translateY(0)!important;transition:transform .15s ease,box-shadow .15s ease!important;
+}
+html:not(.cv-high-contrast) #cvBottomActionBar > button :is(span,svg),html:not(.cv-high-contrast) #cvBottomActionBar > .cv-wa-sheet span {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > .cv-wa-sheet span {display:inline!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > .cv12-launch {background:#2563EB!important;color:#F8FAFC!important;border-color:#3B82F6!important;box-shadow:inset 0 1px #ffffff50,0 4px 0 #1E40AF,0 7px 10px #02061721!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > .cv12-launch :is(span,svg) {color:#F8FAFC!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > button:hover {transform:translateY(-2px)!important;}
+html:not(.cv-high-contrast) #cvBottomActionBar > button:active {transform:translateY(3px)!important;}
+html:not(.cv-high-contrast) #cvFabMaster {right:22px!important;bottom:calc(27px + env(safe-area-inset-bottom,0px))!important;}
+html:not(.cv-high-contrast) #cvFabTrigger {
+  width:62px!important;height:62px!important;border-radius:19px!important;background:#2563EB!important;color:#F8FAFC!important;border:1px solid #60A5FA!important;
+  box-shadow:inset 0 2px #ffffff55,0 6px 0 #1E40AF,0 12px 20px #02061740!important;animation:none!important;
+}
+html:not(.cv-high-contrast) #cvFabTrigger:hover {transform:translateY(-3px);}
+html:not(.cv-high-contrast) #cvFabTrigger:active {transform:translateY(4px);}
+html:not(.cv-high-contrast) #cvFabTrigger svg {color:#F8FAFC!important;width:28px;height:28px;}
+html:not(.cv-high-contrast) .cv-fab-pulse-dot {background:#93C5FD;border-color:#2563EB;box-shadow:none!important;}
+
+/* Mosaico flotante con las siete acciones originales. */
+html:not(.cv-high-contrast) #cvSpeedDialMenu {
+  right:22px!important;bottom:calc(110px + env(safe-area-inset-bottom,0px))!important;width:440px!important;max-width:calc(100vw - 28px)!important;
+  max-height:calc(100dvh - 138px - env(safe-area-inset-bottom,0px))!important;overflow-y:auto;overscroll-behavior:contain;
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px!important;padding:16px 16px 21px!important;
+  background:var(--cv-panel)!important;border:1px solid var(--cv-line)!important;border-radius:18px!important;
+  box-shadow:inset 0 1px var(--ui-highlight),0 6px 0 var(--ui-base),0 20px 45px #02061740!important;
+}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-head {grid-column:1/-1;padding:0 0 12px;border-color:var(--cv-line);}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-title {color:var(--cv-ink)!important;}
+html:not(.cv-high-contrast) #cvToggleDockView {color:var(--ui-number-1)!important;min-height:36px;}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item {
+  display:flex;align-items:flex-start;flex-direction:column;gap:10px;min-width:0;min-height:126px;padding:13px;
+  background:var(--cv-field)!important;color:var(--cv-ink)!important;text-align:left;border:1px solid var(--cv-line)!important;border-radius:12px;
+  box-shadow:inset 0 1px var(--ui-highlight),0 3px 0 var(--ui-base),0 6px 10px #02061718!important;
+}
+html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickAccess {grid-column:1/-1;flex-direction:row;align-items:center;min-height:66px;}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item:hover {transform:translateY(-2px);border-color:#2563EB!important;}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item:active {transform:translateY(2px);}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-icon {background:var(--ui-raised)!important;border:1px solid var(--cv-line);box-shadow:inset 0 1px var(--ui-highlight),0 2px 0 var(--ui-base)!important;width:34px;height:34px;}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-name {color:var(--cv-ink)!important;font-size:12px;line-height:1.35;}
+html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-desc {color:var(--cv-muted)!important;font-size:11px;line-height:1.45;}
+html:not(.cv-high-contrast) :is(button,summary,input,select,textarea):focus-visible {outline:3px solid var(--ui-focus)!important;outline-offset:3px!important;}
+html:not(.cv-high-contrast) .cv-client-upload:focus-within {outline:3px solid var(--ui-focus)!important;outline-offset:3px!important;}
+
+@media(max-width:1000px) {
+  html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {left:12px!important;right:100px!important;width:auto!important;max-width:none!important;transform:none!important;}
+}
+@media(max-width:600px) {
+  html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] {gap:12px!important;}
+  html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button {padding:13px!important;min-height:155px!important;}
+  html:not(.cv-high-contrast) #root [class~="lg:grid-cols-5"][class~="gap-3"] > button h3 {font-size:14px!important;}
+  html:not(.cv-high-contrast) .cv-client-stats {gap:8px!important;}
+  html:not(.cv-high-contrast) .cv-client-stats > :nth-child(n) {padding:12px!important;}
+  html:not(.cv-high-contrast) .cv-client-stats strong {font-size:26px!important;}
+  html:not(.cv-high-contrast) #root header button {min-height:44px!important;}
+  html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {left:8px!important;right:82px!important;bottom:calc(10px + env(safe-area-inset-bottom,0px))!important;border-radius:16px!important;min-height:73px!important;padding:8px 9px 14px!important;}
+  html:not(.cv-high-contrast) #cvBottomActionBar > button {min-height:46px!important;height:46px!important;font-size:11px!important;padding:8px 12px!important;}
+  html:not(.cv-high-contrast) #cvBottomActionBar > :is(.cv-glasspro-open,.cv12-launch)::before {content:none!important;}
+  html:not(.cv-high-contrast) #cvFabMaster {right:13px!important;bottom:calc(23px + env(safe-area-inset-bottom,0px))!important;}
+  html:not(.cv-high-contrast) #cvFabTrigger {width:55px!important;height:55px!important;border-radius:17px!important;}
+  html:not(.cv-high-contrast) #cvSpeedDialMenu {right:10px!important;bottom:calc(100px + env(safe-area-inset-bottom,0px))!important;max-width:calc(100vw - 20px)!important;max-height:calc(100dvh - 122px - env(safe-area-inset-bottom,0px))!important;padding:12px 12px 18px!important;gap:10px!important;}
+}
+@media(max-width:420px) {
+  html:not(.cv-high-contrast) #cvSpeedDialMenu {grid-template-columns:minmax(0,1fr);}
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item {flex-direction:row;align-items:center;min-height:68px;padding:11px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  html:not(.cv-high-contrast) :is(#cvFabTrigger,#cvBottomActionBar > button,#cvSpeedDialMenu,.cv-speed-item,.cv-studio-tabs button,.cv-studio-button) {animation:none!important;transition:none!important;}
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button {transition:none!important;}
+}
+}
