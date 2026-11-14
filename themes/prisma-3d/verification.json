@@ -1,0 +1,107 @@
+{
+  "theme": "PRISMA 3D",
+  "sourceFile": "cv_puerta_editor_pro_V13.2CV_reorganizado.html",
+  "sourceSHA256": "0e6f8da18f86c317287fad44b28bc5498c278f4f3f86d683ab02c8aa6040c47f",
+  "outputSHA256": "507aa83de8f0c23146530e0e046c48579a3a77d62d3fb84394e52c210112f43c",
+  "cssSHA256": "7793f107c1f077333f7c15ff5e5732ff8431f9ca068cf1b7907e76d281604e49",
+  "sourceByteForByteRecoverable": true,
+  "originalScripts": 15,
+  "unchangedScripts": 15,
+  "originalMarkupAndStylesUnchanged": true,
+  "newExecutableCode": false,
+  "screenOnlyCSS": true,
+  "fractionChecks": 6,
+  "scripts": [
+    {
+      "index": 0,
+      "sha256": "a1bed63148e04cfe1830c6df1568bbf0d3a9d63de0fdb70fd0caf85f73acad05",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 1,
+      "sha256": "e0704a89ee53b09ca6f2c348094c3e3d8960800e39c025fbd8f1db4c1e6383d6",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 2,
+      "sha256": "819acffd40ed47c722eda3fc27d344265eae3c2184f17667646f603ba57473d9",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 3,
+      "sha256": "b4dd0345826bbd848d0f095decd22631228e253759bd74afe91377025110373f",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 4,
+      "sha256": "07f16d24d0de055236cb450617934558df8af06540f188b29fe92401e3b54e92",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 5,
+      "sha256": "90ba405ef0051f9ccf1e58d0cc081b06b7c2b443e74183f40d89701bb6c6f0ba",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 6,
+      "sha256": "ad726df93fb6c3c75218facf2f8c6dec6a12a77c19b215bf974030b07851238d",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 7,
+      "sha256": "769bdac0ca143a5160d403e3dc3087dd119f6fe578c4a91ba55269204863c278",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 8,
+      "sha256": "cad62de1de0b3b3e28880e9d2f5cb67b2712990d66f8d3508d297085c74b5fae",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 9,
+      "sha256": "51be440abc42097ae8157df3dd7d19e77bb1f2c9da7172b7b2ad618eb9b7e96c",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 10,
+      "sha256": "212a0bf8a6e0c77cd663b45e9fec60fe3d349f2a883687dd2ba95e69ce2b53c6",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 11,
+      "sha256": "d0a0c4d9ce6195f86352ae5a8e64b410e8b56b5fa9a808be4e8a04e53f1936f9",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 12,
+      "sha256": "238bea72296761101597d9b7523afabe5af1f31609628cf555a3e72c14cef5a1",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 13,
+      "sha256": "6d88423137401faa7058bd2910da218b1e01f8c0353598aced9199735cf05e4e",
+      "unchanged": true,
+      "syntax": "valid"
+    },
+    {
+      "index": 14,
+      "sha256": "d10e998179acb60414565f1d243d318a5ae60eaa21d0249c22dd316b53dfbb1a",
+      "unchanged": true,
+      "syntax": "valid"
+    }
+  ],
+  "browserQA": "Not completed: local preview connections timed out. Print rendering and all interactive flows require visual verification."
+}

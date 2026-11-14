@@ -1,0 +1,351 @@
+/* PRISMA 3D — capa visual para CV Puerta Editor Pro V13.2CV.
+   Solo pantalla. No modifica scripts, datos, medidas, dibujo CAD ni impresión.
+   Reutiliza los iconos y los controles originales, incluidos sus manejadores. */
+@media screen {
+  html:not(.cv-high-contrast) {
+    --cv-bg: #071e2e;
+    --cv-panel: #102f43;
+    --cv-field: #092334;
+    --cv-ink: #f2fcff;
+    --cv-muted: #b4d6e3;
+    --cv-line: #4c87945c;
+    --cv-card-shadow: 0 10px 0 #021723, 0 24px 40px #00101b40;
+    --prisma-mint: #4fffc6;
+    --prisma-lime: #d4ff4d;
+    --prisma-blue: #48cfff;
+    --prisma-pink: #ff6fb5;
+    --prisma-yellow: #ffce4e;
+    --prisma-ink: #062a37;
+  }
+  html.cv-light:not(.cv-high-contrast) {
+    --cv-bg: #eaf8f7;
+    --cv-panel: #ffffff;
+    --cv-field: #f0fafb;
+    --cv-ink: #103549;
+    --cv-muted: #436275;
+    --cv-line: #9ec4cb;
+    --cv-card-shadow: 0 7px 0 #b4d5dc, 0 20px 35px #0a525b18;
+  }
+  html:not(.cv-high-contrast) body,
+  html:not(.cv-high-contrast) #root > div.min-h-screen {
+    background-color: var(--cv-bg) !important;
+    background-image: radial-gradient(ellipse at 0% 0%,#00efb22b,transparent 48%),
+      radial-gradient(ellipse at 100% 18%,#00a9ff24,transparent 38%),
+      radial-gradient(circle,#86d5df19 1px,transparent 1px) !important;
+    background-size: 100% 100%,100% 100%,24px 24px !important;
+    background-attachment: fixed !important;
+    color: var(--cv-ink) !important;
+  }
+  html:not(.cv-high-contrast) #root > div.min-h-screen { padding-bottom: 144px !important; }
+  html:not(.cv-high-contrast) #root > div > main { padding-top: 30px !important; }
+
+  /* Barra superior oscura con detalles luminosos y logotipo en relieve. */
+  html:not(.cv-high-contrast) #root header:has(button[title="Clic para seleccionar módulo"]) {
+    background: linear-gradient(110deg,#052333,#0c3e50) !important;
+    border-bottom: 4px solid var(--prisma-mint) !important;
+    box-shadow: 0 6px 0 #001823,0 14px 30px #00121d45 !important;
+  }
+  html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] {
+    background: #0e4152 !important;
+    border: 1px solid #7fffdf99 !important;
+    border-radius: 18px !important;
+    box-shadow: inset 0 2px #ffffff35,0 5px 0 #011b28,0 10px 18px #0004 !important;
+  }
+  html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] > div:first-child {
+    background: linear-gradient(145deg,#d4ff4d,#4fffc6) !important;
+    color: #073c37 !important;
+    border: 1px solid #dfffb5 !important;
+    box-shadow: inset 0 2px #ffffffb3,0 4px 0 #0e8470 !important;
+    border-radius: 12px !important;
+  }
+  html:not(.cv-high-contrast) #root button[title="Clic para seleccionar módulo"] > div:first-child svg { color: #073c37 !important; }
+  html:not(.cv-high-contrast) #root header .bg-clip-text {
+    color: var(--prisma-mint) !important;
+    -webkit-text-fill-color: var(--prisma-mint) !important;
+  }
+  html:not(.cv-high-contrast) #root header button:not([title="Clic para seleccionar módulo"]) {
+    border-radius: 11px !important;
+    box-shadow: inset 0 1px #ffffff40,0 3px 0 #001a27,0 7px 12px #00121d33;
+  }
+
+  /* Familias: teclas grandes, colores brillantes y base tridimensional. */
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] {
+    gap: 22px !important;
+    padding-block: 6px 18px !important;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:nth-child(1) { --key-top:#a6fff0; --key-face:#31edbd; --key-base:#07866e; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:nth-child(2) { --key-top:#a8ecff; --key-face:#3bc5ff; --key-base:#087cb0; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:nth-child(3) { --key-top:#ffe89a; --key-face:#ffbe32; --key-base:#b9720b; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:nth-child(4) { --key-top:#ffb8dd; --key-face:#ff6eae; --key-base:#a92a6b; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:nth-child(5) { --key-top:#edff9c; --key-face:#c5f33f; --key-base:#648614; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button {
+    position: relative;
+    min-height: 186px !important;
+    padding: 22px !important;
+    border: 1px solid #ffffffb3 !important;
+    border-radius: 23px !important;
+    background: linear-gradient(145deg,var(--key-top),var(--key-face) 75%) !important;
+    color: var(--prisma-ink) !important;
+    box-shadow: inset 0 3px 0 #ffffff95,inset 0 -2px 0 #ffffff25,
+      0 9px 0 var(--key-base),0 13px 0 #031b28,0 24px 28px #00121d50 !important;
+    transition: transform .18s ease,box-shadow .18s ease !important;
+    transform: translateY(0);
+    text-align: left;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button::after {
+    width: 180px; height: 180px; right: -80px; bottom: -85px;
+    border: 26px solid #ffffff26;
+    box-shadow: 0 0 0 22px #ffffff14;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button :is(h3,p,span,svg) { color: var(--prisma-ink) !important; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button h3 { font-size: 17px !important; font-weight: 900 !important; letter-spacing: -.025em; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button p { font-size: 11px !important; font-weight: 600; opacity: .95; }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button > div:not(.absolute) > div:first-child {
+    width: 50px !important; height: 50px !important;
+    background: #ffffff9c !important;
+    border: 1px solid #ffffffcf !important;
+    border-radius: 15px !important;
+    box-shadow: inset 0 2px #fff,0 5px 0 #07354726,0 9px 12px #07354720 !important;
+    transform: perspective(200px) rotateY(-12deg) rotateX(8deg);
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button > div:not(.absolute) > span {
+    background: #ffffff8c !important;
+    border: 1px solid #ffffffb3 !important;
+    padding: 4px 7px !important;
+    letter-spacing: .05em;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button.ring-2 {
+    outline: 3px solid var(--prisma-mint) !important;
+    outline-offset: 6px;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:hover {
+    transform: translateY(-5px);
+    box-shadow: inset 0 3px #ffffffaa,0 14px 0 var(--key-base),0 18px 0 #031b28,0 30px 35px #00121d5c !important;
+  }
+  html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button:active {
+    transform: translateY(6px);
+    box-shadow: inset 0 2px #ffffffaa,0 3px 0 var(--key-base),0 7px 0 #031b28,0 12px 16px #00121d45 !important;
+  }
+
+  /* Área de clientes y editor: luz, contraste y controles con profundidad. */
+  html:not(.cv-high-contrast) .cv-client-hero {
+    background: linear-gradient(115deg,#bdff52,#48f4cb 68%,#45ceff) !important;
+    border: 1px solid #c7ffdc !important;
+    border-radius: 25px !important;
+    box-shadow: inset 0 3px #ffffff99,0 8px 0 #0a8176,0 24px 40px #00121d38 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-hero :is(h1,h2,p,.cv-client-eyebrow) { color: #073b38 !important; }
+  html:not(.cv-high-contrast) .cv-client-hero h1 { font-weight: 900 !important; letter-spacing: -.045em !important; }
+  html:not(.cv-high-contrast) .cv-client-hero::before { border-color: #ffffff30 !important; }
+  html:not(.cv-high-contrast) .cv-client-hero .cv-client-primary {
+    background: #073c42 !important; color: white !important;
+    border-color: #2a6c70 !important;
+    box-shadow: inset 0 2px #ffffff30,0 5px 0 #001e29,0 12px 18px #00555040 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-hero :is(.cv-client-secondary,.cv-client-upload) {
+    background: #ffffffa8 !important; color: #073b38 !important;
+    border-color: #fff !important;
+    box-shadow: inset 0 2px #fff,0 4px 0 #1b766a40,0 8px 14px #00555020 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-stats { gap: 18px !important; }
+  html:not(.cv-high-contrast) .cv-client-stats > :nth-child(1) { background: linear-gradient(130deg,#72eaff,#37beed) !important; --stat-edge:#087eac; }
+  html:not(.cv-high-contrast) .cv-client-stats > :nth-child(2) { background: linear-gradient(130deg,#f1ff97,#c2ee46) !important; --stat-edge:#688b13; }
+  html:not(.cv-high-contrast) .cv-client-stats > :nth-child(3) { background: linear-gradient(130deg,#ffc6df,#ff88bc) !important; --stat-edge:#a74178; }
+  html:not(.cv-high-contrast) .cv-client-stats > * {
+    border: 1px solid #ffffffa8 !important;
+    box-shadow: inset 0 2px #ffffffa0,0 6px 0 var(--stat-edge),0 15px 22px #00121d28 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-stats :is(span,strong,b,p) { color: #083743 !important; }
+  html:not(.cv-high-contrast) .cv-client-toolbar {
+    background: #f3fffd !important; border-color: #b8eee5 !important;
+    box-shadow: 0 5px 0 #6dabae4d,0 16px 26px #00121d26 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-toolbar label { color: #174c55 !important; }
+  html:not(.cv-high-contrast) .cv-client-toolbar :is(input,select) {
+    background: #e7f5f3 !important; color: #123c4a !important; border-color: #95c9c5 !important;
+  }
+  html:not(.cv-high-contrast) .cv-client-toolbar input::placeholder { color: #52787c !important; }
+  html:not(.cv-high-contrast) :is(.surface-card,.cv-studio,.cv-client-card,.cv-client-empty,.cv11-card,.cv10-card,.cv12-panel,.cv12-stat,.cvg-card) {
+    background: var(--cv-panel) !important;
+    border: 1px solid var(--cv-line) !important;
+    border-radius: 20px !important;
+    box-shadow: var(--cv-card-shadow),inset 0 2px #ffffff14 !important;
+  }
+  html:not(.cv-high-contrast) .cv-studio-top {
+    background: linear-gradient(110deg,#bbff4b,#50f2c4 68%,#44c7fa) !important;
+    box-shadow: inset 0 3px #ffffff80,0 5px 0 #147a71 !important;
+    border-radius: 20px 20px 16px 16px !important;
+    margin-bottom: 26px !important;
+  }
+  html:not(.cv-high-contrast) .cv-studio-top :is(h2,p) { color: #083e3d !important; }
+  html:not(.cv-high-contrast) .cv-studio-top .cv-studio-button {
+    background: #0e4651 !important; color: #fff !important;
+    border-color: #2b666d !important;
+    box-shadow: inset 0 2px #ffffff40,0 4px 0 #072a39,0 9px 12px #00595024 !important;
+  }
+  html:not(.cv-high-contrast) .cv-studio-tabs { gap: 12px !important; padding-bottom: 8px !important; }
+  html:not(.cv-high-contrast) .cv-studio-tabs button {
+    background: #a4eaff !important; color: #073a4a !important;
+    border: 1px solid #e0f9ff !important;
+    border-radius: 13px !important;
+    box-shadow: inset 0 2px #ffffffb3,0 5px 0 #2a8199,0 9px 14px #00121d26 !important;
+    font-weight: 850 !important;
+  }
+  html:not(.cv-high-contrast) .cv-studio-tabs button:nth-child(2n) { background: #ffb6d6 !important; color: #501d3b !important; box-shadow: inset 0 2px #ffffffb3,0 5px 0 #a95379,0 9px 14px #00121d26 !important; }
+  html:not(.cv-high-contrast) .cv-studio-tabs button:nth-child(3n) { background: #e2ff89 !important; color: #294318 !important; box-shadow: inset 0 2px #ffffffb3,0 5px 0 #779d30,0 9px 14px #00121d26 !important; }
+  html:not(.cv-high-contrast) .cv-studio-tabs button[aria-pressed="true"] {
+    background: #42f2c0 !important; color: #063b38 !important;
+    border-color: #c3ffed !important;
+    outline: 2px solid #42f2c0; outline-offset: 3px;
+    box-shadow: inset 0 2px #ffffffb3,0 5px 0 #138975,0 9px 18px #0bdf9b26 !important;
+  }
+  html:not(.cv-high-contrast) .cv-studio-grid > aside { border-top: 4px solid var(--prisma-mint) !important; }
+  html:not(.cv-high-contrast) .cv-studio-grid > aside:last-child { border-top-color: var(--prisma-pink) !important; }
+  html:not(.cv-high-contrast) .cv-studio-canvas {
+    border: 1px solid #4eb8bd !important;
+    box-shadow: inset 0 0 35px #1ae0bd0d,0 4px 0 #001923 !important;
+  }
+  html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary) {
+    background: linear-gradient(#69e5ff,#24b6ed) !important;
+    color: #06384a !important;
+    border: 1px solid #a5efff !important;
+    box-shadow: inset 0 2px #ffffffa0,0 4px 0 #08789b,0 8px 13px #00121d30 !important;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary):enabled:hover { filter: brightness(1.07); }
+  html:not(.cv-high-contrast) :is(.cv-studio-button,.cv-glass-action,.cv-client-primary,.cv-studio-tabs button):enabled:active { translate: 0 3px; }
+  html:not(.cv-high-contrast) :is(.cv11-tabs,.cvg-tabs) button.active {
+    background: #55f8c7 !important; color: #083e3d !important;
+    box-shadow: inset 0 2px #ffffff90,0 4px 0 #0e8874 !important;
+  }
+  html:not(.cv-high-contrast) :is(.cvg-head,.cv12-side) { background: linear-gradient(150deg,#073645,#126377) !important; }
+  html:not(.cv-high-contrast) .cv12-nav button.active { background: #55f8c7 !important; color: #083e3d !important; border-color: #b7ffe9 !important; }
+
+  /* Dock flotante: conserva sus cinco botones y sus acciones originales. */
+  html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {
+    left: 50% !important; right: auto !important; bottom: 22px !important;
+    width: max-content !important; max-width: calc(100vw - 220px) !important;
+    transform: translateX(-50%) !important;
+    min-height: 82px !important;
+    padding: 10px 12px 18px !important; gap: 10px !important;
+    background: #0b3549f2 !important;
+    border: 1px solid #9eece68c !important; border-radius: 25px !important;
+    box-shadow: inset 0 2px #ffffff32,0 7px 0 #031c2b,0 22px 50px #000a,0 0 30px #30ffd31c !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    scrollbar-width: thin;
+    scrollbar-color: #55f8c7 #0b3549;
+  }
+  html:not(.cv-high-contrast) #cvBottomActionBar.cv-dock-minimized { visibility: hidden !important; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > button {
+    --dock-face:#a7c4d4; --dock-top:#dfedf6; --dock-base:#466778;
+    flex: 0 0 auto !important;
+    height: 50px !important; min-height: 50px !important;
+    padding: 10px 16px !important;
+    font-size: 11px !important; font-weight: 900 !important;
+    border-radius: 15px !important;
+    background: linear-gradient(155deg,var(--dock-top),var(--dock-face)) !important;
+    color: #07343e !important;
+    border: 1px solid #ffffffa8 !important;
+    box-shadow: inset 0 2px #ffffffb0,0 6px 0 var(--dock-base),0 10px 12px #00121d50 !important;
+    transform: translateY(0) !important;
+    transition: transform .16s ease,box-shadow .16s ease !important;
+  }
+  html:not(.cv-high-contrast) #cvBottomActionBar > #cvWaTechnical { --dock-face:#2eebad; --dock-top:#a1ffd8; --dock-base:#078566; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > #cvgOpen { --dock-face:#38c9ff; --dock-top:#a7efff; --dock-base:#087ca3; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > .cv12-launch { --dock-face:#ffc441; --dock-top:#ffed9b; --dock-base:#b4760c; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > #cv122Access { --dock-face:#ff80bd; --dock-top:#ffc9e5; --dock-base:#a33271; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > button :is(span,svg) { color: #07343e !important; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > .cv-wa-sheet span { display: inline !important; }
+  html:not(.cv-high-contrast) #cvBottomActionBar > button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: inset 0 2px #ffffffc0,0 9px 0 var(--dock-base),0 16px 15px #00121d60 !important;
+  }
+  html:not(.cv-high-contrast) #cvBottomActionBar > button:active {
+    transform: translateY(4px) !important;
+    box-shadow: inset 0 1px #ffffffa0,0 2px 0 var(--dock-base),0 5px 8px #00121d40 !important;
+  }
+  html:not(.cv-high-contrast) #cvFabMaster { right: 24px !important; bottom: 30px !important; }
+  html:not(.cv-high-contrast) #cvFabTrigger {
+    width: 66px !important; height: 66px !important;
+    border-radius: 22px !important;
+    color: #103f37 !important;
+    background: linear-gradient(145deg,#f3ff9b,#c8ff3f 65%,#6bef8a) !important;
+    border: 2px solid #f0ffc6 !important;
+    box-shadow: inset 0 3px #ffffffc0,0 8px 0 #688e13,0 13px 0 #062a33,0 20px 34px #0008,0 0 28px #c8ff3f33 !important;
+    animation: none !important;
+  }
+  html:not(.cv-high-contrast) #cvFabTrigger:hover { transform: translateY(-4px) rotate(-5deg); }
+  html:not(.cv-high-contrast) #cvFabTrigger:active { transform: translateY(4px); }
+  html:not(.cv-high-contrast) #cvFabTrigger svg { width: 30px; height: 30px; }
+  html:not(.cv-high-contrast) .cv-fab-pulse-dot { background: #ff69ad; border-color: #fff3cb; box-shadow: 0 0 12px #ff69ad88; }
+
+  /* Menú de herramientas: mosaico flotante con las siete acciones existentes. */
+  html:not(.cv-high-contrast) #cvSpeedDialMenu {
+    right: 24px !important; bottom: 116px !important;
+    width: 450px !important; max-width: calc(100vw - 32px) !important;
+    max-height: calc(100dvh - 145px) !important; overflow-y: auto;
+    display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px !important; padding: 16px 16px 22px !important;
+    background: #0b3549fa !important; border: 1px solid #8ceedd !important;
+    box-shadow: inset 0 2px #ffffff30,0 8px 0 #021e2d,0 25px 65px #00101baa !important;
+  }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-head { grid-column: 1 / -1; padding: 0 0 12px; border-color: #70e8d759; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-title { color: #d4ff4d !important; }
+  html:not(.cv-high-contrast) #cvToggleDockView { color: #b5ffdf !important; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item {
+    --speed-face:#c2f8ef; --speed-base:#2a8c80;
+    display: flex; align-items: flex-start; flex-direction: column;
+    gap: 10px; min-width: 0; min-height: 128px; padding: 13px;
+    background: linear-gradient(140deg,#ffffff,var(--speed-face)) !important;
+    color: #0e3b48 !important; text-align: left;
+    border: 1px solid #ffffffc0 !important; border-radius: 15px;
+    box-shadow: inset 0 2px #ffffff,0 5px 0 var(--speed-base),0 9px 12px #00121d55 !important;
+  }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickGlass { --speed-face:#91e2ff; --speed-base:#237eaa; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickTaller { --speed-face:#ffe49a; --speed-base:#b58022; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickLabels { --speed-face:#ffc0e2; --speed-base:#ae4b83; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickCAD { --speed-face:#c8c8ff; --speed-base:#6d67b2; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickPrint { --speed-face:#ffbc9b; --speed-base:#ac6547; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu #cvQuickAccess { --speed-face:#d8fa91; --speed-base:#719a2c; grid-column: 1 / -1; flex-direction: row; align-items: center; min-height: 62px; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item:hover { transform: translateY(-2px); }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item:active { transform: translateY(3px); }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-icon {
+    background: #ffffffb0 !important; border: 1px solid #fff;
+    box-shadow: inset 0 2px #fff,0 3px 0 #103f4826 !important;
+    width: 34px; height: 34px;
+  }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-name { color: #123d49 !important; line-height: 1.3; }
+  html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-desc { color: #3f6470 !important; font-size: 10px; line-height: 1.4; }
+  html:not(.cv-high-contrast) :is(button,summary,input,select,textarea):focus-visible {
+    outline: 3px solid #ffcc49 !important; outline-offset: 4px;
+  }
+
+  @media (max-width: 1000px) {
+    html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {
+      left: 14px !important; right: 105px !important; transform: none !important;
+      width: auto !important; max-width: none !important;
+    }
+    html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] { gap: 20px !important; }
+  }
+  @media (max-width: 600px) {
+    html:not(.cv-high-contrast) #root > div > main { padding-top: 22px !important; }
+    html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button { min-height: 162px !important; padding: 18px !important; }
+    html:not(.cv-high-contrast) #cvBottomActionBar:not(.cv-dock-minimized) {
+      left: 8px !important; right: 82px !important; bottom: 12px !important;
+      border-radius: 20px !important; min-height: 74px !important; padding: 8px 9px 15px !important;
+    }
+    html:not(.cv-high-contrast) #cvBottomActionBar > button { height: 46px !important; min-height: 46px !important; font-size: 10px !important; padding: 8px 12px !important; }
+    html:not(.cv-high-contrast) #cvBottomActionBar > :is(.cv-glasspro-open,.cv12-launch)::before { content: none !important; }
+    html:not(.cv-high-contrast) #cvFabMaster { right: 13px !important; bottom: 23px !important; }
+    html:not(.cv-high-contrast) #cvFabTrigger { width: 55px !important; height: 55px !important; border-radius: 18px !important; }
+    html:not(.cv-high-contrast) #cvSpeedDialMenu { right: 10px !important; bottom: 102px !important; max-width: calc(100vw - 20px) !important; max-height: calc(100dvh - 120px) !important; padding: 12px 12px 19px !important; gap: 10px !important; }
+    html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item { min-height: 116px; padding: 10px; }
+    html:not(.cv-high-contrast) #cvSpeedDialMenu .cv-speed-item-name { font-size: 11px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.cv-high-contrast) :is(#cvFabTrigger,#cvBottomActionBar > button,#cvSpeedDialMenu,.cv-speed-item,.cv-studio-tabs button,.cv-studio-button) { animation: none !important; transition: none !important; }
+    html:not(.cv-high-contrast) #root [class*="lg:grid-cols-5"] > button { transition: none !important; }
+  }
+}
