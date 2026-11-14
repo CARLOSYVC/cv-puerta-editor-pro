@@ -36,10 +36,25 @@ assert.equal(context.cvParseProfileMeasure('2 3/8'),2.375);
 assert.equal(context.cvParseProfileMeasure('0.125'),0.125);
 assert.equal(context.cvExactInchFraction(1.625),'1 5/8');
 assert(Number.isNaN(context.cvParseProfileMeasure('1/0')));
+const luminance = hex => {
+  const c = hex.slice(1).match(/../g).map(v=>parseInt(v,16)/255).map(v=>v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4);
+  return c[0]*0.2126+c[1]*0.7152+c[2]*0.0722;
+};
+const contrastPairs = [
+  ['dark text','#F8FAFC','#1E293B'],['dark secondary','#CBD5E1','#1E293B'],
+  ['light text','#0F172A','#FFFFFF'],['light secondary','#475569','#FFFFFF'],
+  ['primary action','#F8FAFC','#2563EB'],['quick action','#0F172A','#F97316'],
+  ['dark count 1','#93C5FD','#1E293B'],['dark count 2','#5EEAD4','#1E293B'],['dark count 3','#C4B5FD','#1E293B'],
+  ['light count 1','#2563EB','#FFFFFF'],['light count 2','#0F766E','#FFFFFF'],['light count 3','#7C3AED','#FFFFFF']
+].map(([name,foreground,background])=>{
+  const a=luminance(foreground),b=luminance(background),ratio=(Math.max(a,b)+0.05)/(Math.min(a,b)+0.05);
+  assert(ratio>=4.5, 'Contraste insuficiente: '+name);
+  return {name,foreground,background,ratio:Number(ratio.toFixed(2))};
+});
 fs.mkdirSync(path.dirname(outputPath),{recursive:true});
 fs.writeFileSync(outputPath,output,'utf8');
 const report = {
-  theme:'PRISMA 3D',
+  theme:'PRISMA 3D · Industrial',
   sourceFile:path.basename(originalPath),
   sourceSHA256:hash(original),
   outputSHA256:hash(Buffer.from(output)),
@@ -51,6 +66,7 @@ const report = {
   newExecutableCode:false,
   screenOnlyCSS:true,
   fractionChecks:6,
+  colorContrastChecks:contrastPairs,
   scripts:scriptChecks,
   browserQA:'Not completed: local preview connections timed out. Print rendering and all interactive flows require visual verification.'
 };

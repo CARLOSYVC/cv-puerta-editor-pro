@@ -1,9 +1,9 @@
 {
-  "theme": "PRISMA 3D",
+  "theme": "PRISMA 3D · Industrial",
   "sourceFile": "cv_puerta_editor_pro_V13.2CV_reorganizado.html",
   "sourceSHA256": "0e6f8da18f86c317287fad44b28bc5498c278f4f3f86d683ab02c8aa6040c47f",
-  "outputSHA256": "507aa83de8f0c23146530e0e046c48579a3a77d62d3fb84394e52c210112f43c",
-  "cssSHA256": "7793f107c1f077333f7c15ff5e5732ff8431f9ca068cf1b7907e76d281604e49",
+  "outputSHA256": "94d2944712dc4d304c70d66a0d853f2f8495f29384c4f789253b2318a31d849b",
+  "cssSHA256": "a199e8b4eda8675bbfad689003328d7715e9de8731788676d8a6ed4e8c1cf5c5",
   "sourceByteForByteRecoverable": true,
   "originalScripts": 15,
   "unchangedScripts": 15,
@@ -11,6 +11,80 @@
   "newExecutableCode": false,
   "screenOnlyCSS": true,
   "fractionChecks": 6,
+  "colorContrastChecks": [
+    {
+      "name": "dark text",
+      "foreground": "#F8FAFC",
+      "background": "#1E293B",
+      "ratio": 13.98
+    },
+    {
+      "name": "dark secondary",
+      "foreground": "#CBD5E1",
+      "background": "#1E293B",
+      "ratio": 9.85
+    },
+    {
+      "name": "light text",
+      "foreground": "#0F172A",
+      "background": "#FFFFFF",
+      "ratio": 17.85
+    },
+    {
+      "name": "light secondary",
+      "foreground": "#475569",
+      "background": "#FFFFFF",
+      "ratio": 7.58
+    },
+    {
+      "name": "primary action",
+      "foreground": "#F8FAFC",
+      "background": "#2563EB",
+      "ratio": 4.94
+    },
+    {
+      "name": "quick action",
+      "foreground": "#0F172A",
+      "background": "#F97316",
+      "ratio": 6.37
+    },
+    {
+      "name": "dark count 1",
+      "foreground": "#93C5FD",
+      "background": "#1E293B",
+      "ratio": 8.11
+    },
+    {
+      "name": "dark count 2",
+      "foreground": "#5EEAD4",
+      "background": "#1E293B",
+      "ratio": 9.89
+    },
+    {
+      "name": "dark count 3",
+      "foreground": "#C4B5FD",
+      "background": "#1E293B",
+      "ratio": 7.92
+    },
+    {
+      "name": "light count 1",
+      "foreground": "#2563EB",
+      "background": "#FFFFFF",
+      "ratio": 5.17
+    },
+    {
+      "name": "light count 2",
+      "foreground": "#0F766E",
+      "background": "#FFFFFF",
+      "ratio": 5.47
+    },
+    {
+      "name": "light count 3",
+      "foreground": "#7C3AED",
+      "background": "#FFFFFF",
+      "ratio": 5.7
+    }
+  ],
   "scripts": [
     {
       "index": 0,
