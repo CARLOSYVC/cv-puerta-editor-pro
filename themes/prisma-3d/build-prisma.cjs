@@ -54,7 +54,7 @@ const contrastPairs = [
 fs.mkdirSync(path.dirname(outputPath),{recursive:true});
 fs.writeFileSync(outputPath,output,'utf8');
 const report = {
-  theme:'PRISMA 3D · Industrial',
+  theme:'CV Editor · Empresarial 3D',
   sourceFile:path.basename(originalPath),
   sourceSHA256:hash(original),
   outputSHA256:hash(Buffer.from(output)),

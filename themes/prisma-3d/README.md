@@ -1,6 +1,6 @@
-# Prisma 3D Industrial — tema para el editor HTML V13.2CV
+# CV Editor Empresarial 3D — tema para el HTML V13.2CV
 
-Capa de presentación para `cv_puerta_editor_pro_V13.2CV_reorganizado.html`: superficies neutras en modo claro y oscuro, acciones cobalto, botones elevados, dock flotante compacto y menú de herramientas en mosaico.
+Capa de presentación para `cv_puerta_editor_pro_V13.2CV_reorganizado.html`: superficies neutras, tipografía uniforme, categorías compactas, acciones cobalto, botones con relieve discreto y menú flotante vertical de herramientas.
 
 ## Paleta
 
@@ -14,7 +14,9 @@ Capa de presentación para `cv_puerta_editor_pro_V13.2CV_reorganizado.html`: sup
 
 “Digitalizar Foto” usa `#F97316` con texto `#0F172A`. Las cinco familias usan bordes e iconos en `#0284C7`, `#0D9488`, `#D97706`, `#7C3AED` y `#059669`. Clientes, Registros y Hojas de corte comparten fondo neutro y diferencian únicamente la cifra. Los números emplean variantes claras sobre fondo oscuro para conservar el contraste.
 
-El relieve 3D se produce con sombras y respuesta a la pulsación. No hay degradados en esta capa. Las tarjetas conservan fondos neutros; las áreas de dibujo no reciben cambios de geometría SVG. En teléfono, el dock admite desplazamiento horizontal y el menú pasa a una columna en pantallas pequeñas.
+La edición empresarial usa una retícula máxima de 1560 px, cabecera de menor altura, tarjetas compactas, números tabulares, tipografía Segoe UI y bordes de 7–10 px. El relieve 3D se concentra en los botones, con un escalón de dos píxeles y respuesta a la pulsación. No hay degradados en esta capa. Las áreas de dibujo no reciben cambios de geometría SVG. El dock admite desplazamiento horizontal en teléfono; el menú vertical conserva sus siete acciones y desplaza su contenido cuando la altura lo requiere.
+
+Los nueve iconos de Lucide se obtuvieron de su repositorio oficial en GitHub y se incorporaron como SVG data URLs. La licencia está incluida en el CSS y en `THIRD_PARTY_NOTICES.md`; no se añaden dependencias de red al editor.
 
 Este HTML autónomo es distinto de la aplicación React/ERP del repositorio. Por eso el tema se guarda en `themes/prisma-3d/` y no se importa automáticamente en `frontend/`. Se conserva el comportamiento de la versión HTML suministrada.
 
@@ -43,4 +45,6 @@ Después abre el HTML generado con Edge o Chrome. El original se obtiene del usu
 
 `build-prisma.cjs` verifica recuperación exacta del original, identidad y sintaxis de scripts, seis casos de las funciones originales de pulgadas/fracciones y 12 pares de colores de texto/fondo con contraste mínimo 4,5:1. Emite un informe junto al HTML. El contraste se calcula sobre los colores definidos; no constituye una auditoría del renderizado completo.
 
-El informe adjunto corresponde al resultado generado en esta revisión. No constituye una validación exhaustiva de cada cálculo. La vista previa local no fue accesible por problemas de conexión; quedan pendientes la revisión visual, móvil y de impresión y los recorridos interactivos. No se agregan dependencias de ejecución ni modificaciones al ERP.
+`css-verification.json` registra el análisis de sintaxis y la comprobación estática de la cascada CSS contra marcado representativo: acciones principales, selector de módulos, cinco categorías, contadores, pestañas y menú. Pasaron seis combinaciones: claro/oscuro a 390, 900 y 1440 px. Se usaron tinycss2 y cssselect2 únicamente para control de calidad, sin añadirlos al editor.
+
+Estos informes no constituyen una validación exhaustiva de cada cálculo ni una prueba de renderizado. La vista previa local siguió sin responder; quedan pendientes la revisión visual, móvil y de impresión y los recorridos interactivos. No se agregan dependencias de ejecución ni modificaciones al ERP.

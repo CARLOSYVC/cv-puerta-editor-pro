@@ -1,9 +1,9 @@
 {
-  "theme": "PRISMA 3D · Industrial",
+  "theme": "CV Editor · Empresarial 3D",
   "sourceFile": "cv_puerta_editor_pro_V13.2CV_reorganizado.html",
   "sourceSHA256": "0e6f8da18f86c317287fad44b28bc5498c278f4f3f86d683ab02c8aa6040c47f",
-  "outputSHA256": "94d2944712dc4d304c70d66a0d853f2f8495f29384c4f789253b2318a31d849b",
-  "cssSHA256": "a199e8b4eda8675bbfad689003328d7715e9de8731788676d8a6ed4e8c1cf5c5",
+  "outputSHA256": "b7982fb06576b4d1727ab4f0b9dd355113eab195d8e26fffa3919b490d664bd6",
+  "cssSHA256": "dbf45d43c9256f284cb113918bcbcfbd7d99861fa1f3faacec4152125e69c97a",
   "sourceByteForByteRecoverable": true,
   "originalScripts": 15,
   "unchangedScripts": 15,
