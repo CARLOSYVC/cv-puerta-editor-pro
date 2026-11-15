@@ -1,0 +1,37 @@
+{
+  "cssSyntax": "parsed",
+  "newSelectors": "compiled",
+  "cascadeChecks": [
+    {
+      "width": 390,
+      "mode": "dark",
+      "status": "passed"
+    },
+    {
+      "width": 390,
+      "mode": "light",
+      "status": "passed"
+    },
+    {
+      "width": 900,
+      "mode": "dark",
+      "status": "passed"
+    },
+    {
+      "width": 900,
+      "mode": "light",
+      "status": "passed"
+    },
+    {
+      "width": 1440,
+      "mode": "dark",
+      "status": "passed"
+    },
+    {
+      "width": 1440,
+      "mode": "light",
+      "status": "passed"
+    }
+  ],
+  "method": "Static CSS cascade against representative markup; not a browser rendering test."
+}
